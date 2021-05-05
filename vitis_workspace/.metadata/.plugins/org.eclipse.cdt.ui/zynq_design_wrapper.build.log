@@ -1,0 +1,6 @@
+01:15:34 **** Incremental Build of project zynq_design_wrapper ****
+buildplatform.bat 11302 zynq_design_wrapper no_domain_build 
+XSDB Server Channel: tcfchan#1
+
+01:15:37 Build Finished (took 2s.267ms)
+

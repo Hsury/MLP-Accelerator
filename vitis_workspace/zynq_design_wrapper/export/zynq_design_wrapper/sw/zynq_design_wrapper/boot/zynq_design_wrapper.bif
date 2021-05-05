@@ -1,0 +1,7 @@
+/*zynq_design_wrapper*/
+the_ROM_image:
+{
+  [bootloader]<zynq_design_wrapper/boot/fsbl.elf>
+   <bitstream> 
+  <elf>
+}

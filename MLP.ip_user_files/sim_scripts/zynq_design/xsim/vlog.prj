@@ -1,0 +1,21 @@
+verilog xil_defaultlib --include "D:/Xilinx/Vivado/2020.2/data/xilinx_vip/include" --include "../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/ec67/hdl" --include "../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/34f8/hdl" \
+"../../../bd/zynq_design/ip/zynq_design_processing_system7_0_0/sim/zynq_design_processing_system7_0_0.v" \
+"../../../bd/zynq_design/ip/zynq_design_xbar_0/sim/zynq_design_xbar_0.v" \
+"../../../bd/zynq_design/ipshared/2f96/src/mlp.v" \
+"../../../bd/zynq_design/ipshared/2f96/src/perceptron.v" \
+"../../../bd/zynq_design/ipshared/2f96/hdl/MLP_RTL_IP_v1_0.v" \
+"../../../bd/zynq_design/ip/zynq_design_MLP_RTL_IP_0_0/sim/zynq_design_MLP_RTL_IP_0_0.v" \
+"../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/fd44/hdl/verilog/MLPHLS_Opt_Data.v" \
+"../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/fd44/hdl/verilog/MLPHLS_Opt_mac_mubkb.v" \
+"../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/fd44/hdl/verilog/MLPHLS_Opt_mac_mucud.v" \
+"../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/fd44/hdl/verilog/MLPHLS_Opt_SIGLUT.v" \
+"../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/fd44/hdl/verilog/MLPHLS_Opt_W11.v" \
+"../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/fd44/hdl/verilog/regslice_core.v" \
+"../../../../MLP.gen/sources_1/bd/zynq_design/ipshared/fd44/hdl/verilog/MLPHLS_Opt.v" \
+"../../../bd/zynq_design/ip/zynq_design_MLPHLS_Opt_0_0/sim/zynq_design_MLPHLS_Opt_0_0.v" \
+"../../../bd/zynq_design/ip/zynq_design_auto_pc_0/sim/zynq_design_auto_pc_0.v" \
+"../../../bd/zynq_design/sim/zynq_design.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

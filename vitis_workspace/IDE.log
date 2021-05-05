@@ -1,0 +1,1327 @@
+23:55:46 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Lab\MLP\vitis_workspace\temp_xsdb_launch_script.tcl
+23:55:46 INFO  : Registering command handlers for Vitis TCF services
+23:55:49 INFO  : Platform repository initialization has completed.
+23:55:49 INFO  : XSCT server has started successfully.
+23:55:49 INFO  : Successfully done setting XSCT server connection channel  
+23:55:49 INFO  : plnx-install-location is set to ''
+23:55:50 INFO  : Successfully done setting workspace for the tool. 
+23:55:50 INFO  : Successfully done query RDI_DATADIR 
+00:00:23 INFO  : Result from executing command 'getProjects': zynq_design_wrapper
+00:00:23 INFO  : Result from executing command 'getPlatforms': 
+00:00:23 WARN  : An unexpected exception occurred in the module 'platform project logging'
+00:00:23 INFO  : Platform 'zynq_design_wrapper' is added to custom repositories.
+00:00:33 INFO  : Platform 'zynq_design_wrapper' is added to custom repositories.
+00:01:00 INFO  : Result from executing command 'getProjects': zynq_design_wrapper
+00:01:00 INFO  : Result from executing command 'getPlatforms': zynq_design_wrapper|D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/zynq_design_wrapper.xpfm
+00:01:00 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:02:13 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:02:13 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:02:13 INFO  : 'jtag frequency' command is executed.
+00:02:13 INFO  : Context for 'APU' is selected.
+00:02:13 INFO  : System reset is completed.
+00:02:16 INFO  : 'after 3000' command is executed.
+00:02:17 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:02:19 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:02:19 INFO  : Context for 'APU' is selected.
+00:02:20 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:02:20 INFO  : 'configparams force-mem-access 1' command is executed.
+00:02:20 INFO  : Context for 'APU' is selected.
+00:02:20 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:02:22 INFO  : 'ps7_init' command is executed.
+00:02:23 INFO  : 'ps7_post_config' command is executed.
+00:02:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:02:23 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:02:23 INFO  : 'configparams force-mem-access 0' command is executed.
+00:02:23 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:02:23 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:02:23 INFO  : 'con' command is executed.
+00:02:23 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:02:23 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:21:38 INFO  : Disconnected from the channel tcfchan#2.
+00:23:14 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:23:18 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:23:18 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:23:18 INFO  : 'jtag frequency' command is executed.
+00:23:19 INFO  : Context for 'APU' is selected.
+00:23:19 INFO  : System reset is completed.
+00:23:22 INFO  : 'after 3000' command is executed.
+00:23:22 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:23:24 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:23:24 INFO  : Context for 'APU' is selected.
+00:23:24 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:23:24 INFO  : 'configparams force-mem-access 1' command is executed.
+00:23:24 INFO  : Context for 'APU' is selected.
+00:23:24 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:23:28 INFO  : 'ps7_init' command is executed.
+00:23:28 INFO  : 'ps7_post_config' command is executed.
+00:23:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:23:28 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:23:29 INFO  : 'configparams force-mem-access 0' command is executed.
+00:23:29 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:23:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:23:29 INFO  : 'con' command is executed.
+00:23:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:23:29 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:23:50 INFO  : Disconnected from the channel tcfchan#4.
+00:23:51 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:23:51 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:23:51 INFO  : 'jtag frequency' command is executed.
+00:23:51 INFO  : Context for 'APU' is selected.
+00:23:51 INFO  : System reset is completed.
+00:23:54 INFO  : 'after 3000' command is executed.
+00:23:54 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:23:56 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:23:57 INFO  : Context for 'APU' is selected.
+00:23:57 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:23:57 INFO  : 'configparams force-mem-access 1' command is executed.
+00:23:57 INFO  : Context for 'APU' is selected.
+00:23:57 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:24:01 INFO  : 'ps7_init' command is executed.
+00:24:01 INFO  : 'ps7_post_config' command is executed.
+00:24:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:24:02 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:24:02 INFO  : 'configparams force-mem-access 0' command is executed.
+00:24:02 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:24:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:24:02 INFO  : 'con' command is executed.
+00:24:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:24:02 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:30:25 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:30:37 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:36:47 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:36:57 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:37:00 INFO  : Disconnected from the channel tcfchan#5.
+00:37:01 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:37:01 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:37:01 INFO  : 'jtag frequency' command is executed.
+00:37:01 INFO  : Context for 'APU' is selected.
+00:37:01 INFO  : System reset is completed.
+00:37:04 INFO  : 'after 3000' command is executed.
+00:37:05 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:37:07 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:37:07 INFO  : Context for 'APU' is selected.
+00:37:07 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:37:07 INFO  : 'configparams force-mem-access 1' command is executed.
+00:37:07 INFO  : Context for 'APU' is selected.
+00:37:07 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:37:11 INFO  : 'ps7_init' command is executed.
+00:37:12 INFO  : 'ps7_post_config' command is executed.
+00:37:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:37:12 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:37:12 INFO  : 'configparams force-mem-access 0' command is executed.
+00:37:12 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:37:12 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:37:12 INFO  : 'con' command is executed.
+00:37:12 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:37:12 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:39:27 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:40:56 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:40:59 INFO  : Disconnected from the channel tcfchan#6.
+00:41:00 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:41:01 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:41:01 INFO  : 'jtag frequency' command is executed.
+00:41:01 INFO  : Context for 'APU' is selected.
+00:41:01 INFO  : System reset is completed.
+00:41:04 INFO  : 'after 3000' command is executed.
+00:41:04 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:41:06 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:41:06 INFO  : Context for 'APU' is selected.
+00:41:06 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:41:06 INFO  : 'configparams force-mem-access 1' command is executed.
+00:41:06 INFO  : Context for 'APU' is selected.
+00:41:06 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:41:10 INFO  : 'ps7_init' command is executed.
+00:41:11 INFO  : 'ps7_post_config' command is executed.
+00:41:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:41:11 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:41:11 INFO  : 'configparams force-mem-access 0' command is executed.
+00:41:11 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:41:11 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:41:11 INFO  : 'con' command is executed.
+00:41:11 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:41:11 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:50:20 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:50:23 INFO  : Disconnected from the channel tcfchan#7.
+00:50:25 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:50:25 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:50:25 INFO  : 'jtag frequency' command is executed.
+00:50:25 INFO  : Context for 'APU' is selected.
+00:50:25 INFO  : System reset is completed.
+00:50:28 INFO  : 'after 3000' command is executed.
+00:50:28 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:50:31 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:50:31 INFO  : Context for 'APU' is selected.
+00:50:31 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:50:31 INFO  : 'configparams force-mem-access 1' command is executed.
+00:50:31 INFO  : Context for 'APU' is selected.
+00:50:31 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:50:34 INFO  : 'ps7_init' command is executed.
+00:50:34 INFO  : 'ps7_post_config' command is executed.
+00:50:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:50:34 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:50:34 INFO  : 'configparams force-mem-access 0' command is executed.
+00:50:34 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:50:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:50:34 INFO  : 'con' command is executed.
+00:50:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:50:34 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:52:19 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:52:26 INFO  : Disconnected from the channel tcfchan#8.
+00:52:27 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:52:27 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:52:27 INFO  : 'jtag frequency' command is executed.
+00:52:27 INFO  : Context for 'APU' is selected.
+00:52:27 INFO  : System reset is completed.
+00:52:30 INFO  : 'after 3000' command is executed.
+00:52:30 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:52:33 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:52:33 INFO  : Context for 'APU' is selected.
+00:52:33 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:52:33 INFO  : 'configparams force-mem-access 1' command is executed.
+00:52:33 INFO  : Context for 'APU' is selected.
+00:52:33 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:52:35 INFO  : 'ps7_init' command is executed.
+00:52:36 INFO  : 'ps7_post_config' command is executed.
+00:52:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:52:36 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:52:36 INFO  : 'configparams force-mem-access 0' command is executed.
+00:52:36 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:52:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:52:36 INFO  : 'con' command is executed.
+00:52:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:52:36 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:53:22 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:53:34 INFO  : Disconnected from the channel tcfchan#9.
+00:53:35 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:53:35 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:53:35 INFO  : 'jtag frequency' command is executed.
+00:53:35 INFO  : Context for 'APU' is selected.
+00:53:35 INFO  : System reset is completed.
+00:53:38 INFO  : 'after 3000' command is executed.
+00:53:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:53:41 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:53:41 INFO  : Context for 'APU' is selected.
+00:53:41 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:53:41 INFO  : 'configparams force-mem-access 1' command is executed.
+00:53:41 INFO  : Context for 'APU' is selected.
+00:53:41 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:53:44 INFO  : 'ps7_init' command is executed.
+00:53:45 INFO  : 'ps7_post_config' command is executed.
+00:53:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:53:45 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:53:45 INFO  : 'configparams force-mem-access 0' command is executed.
+00:53:45 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:53:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:53:45 INFO  : 'con' command is executed.
+00:53:45 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:53:45 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:57:32 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:57:45 INFO  : Disconnected from the channel tcfchan#10.
+00:57:46 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:57:46 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:57:46 INFO  : 'jtag frequency' command is executed.
+00:57:46 INFO  : Context for 'APU' is selected.
+00:57:46 INFO  : System reset is completed.
+00:57:49 INFO  : 'after 3000' command is executed.
+00:57:49 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:57:52 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:57:52 INFO  : Context for 'APU' is selected.
+00:57:52 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:57:52 INFO  : 'configparams force-mem-access 1' command is executed.
+00:57:52 INFO  : Context for 'APU' is selected.
+00:57:52 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:57:55 INFO  : 'ps7_init' command is executed.
+00:57:55 INFO  : 'ps7_post_config' command is executed.
+00:57:55 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:57:55 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:57:56 INFO  : 'configparams force-mem-access 0' command is executed.
+00:57:56 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:57:56 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:57:56 INFO  : 'con' command is executed.
+00:57:56 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:57:56 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+00:59:32 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:59:39 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+00:59:42 INFO  : Disconnected from the channel tcfchan#11.
+00:59:43 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+00:59:44 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+00:59:44 INFO  : 'jtag frequency' command is executed.
+00:59:44 INFO  : Context for 'APU' is selected.
+00:59:44 INFO  : System reset is completed.
+00:59:47 INFO  : 'after 3000' command is executed.
+00:59:47 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+00:59:50 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+00:59:50 INFO  : Context for 'APU' is selected.
+00:59:50 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+00:59:50 INFO  : 'configparams force-mem-access 1' command is executed.
+00:59:50 INFO  : Context for 'APU' is selected.
+00:59:50 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+00:59:54 INFO  : 'ps7_init' command is executed.
+00:59:54 INFO  : 'ps7_post_config' command is executed.
+00:59:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:59:54 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+00:59:54 INFO  : 'configparams force-mem-access 0' command is executed.
+00:59:54 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+00:59:54 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+00:59:54 INFO  : 'con' command is executed.
+00:59:54 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+00:59:54 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:01:00 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:04:02 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:04:07 INFO  : Disconnected from the channel tcfchan#12.
+01:04:08 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:04:09 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:04:09 INFO  : 'jtag frequency' command is executed.
+01:04:09 INFO  : Context for 'APU' is selected.
+01:04:09 INFO  : System reset is completed.
+01:04:12 INFO  : 'after 3000' command is executed.
+01:04:12 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:04:15 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:04:15 INFO  : Context for 'APU' is selected.
+01:04:15 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:04:15 INFO  : 'configparams force-mem-access 1' command is executed.
+01:04:15 INFO  : Context for 'APU' is selected.
+01:04:15 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:04:19 INFO  : 'ps7_init' command is executed.
+01:04:19 INFO  : 'ps7_post_config' command is executed.
+01:04:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:04:19 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:04:19 INFO  : 'configparams force-mem-access 0' command is executed.
+01:04:19 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:04:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:04:19 INFO  : 'con' command is executed.
+01:04:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:04:19 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:17:52 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:18:20 INFO  : Disconnected from the channel tcfchan#13.
+01:18:21 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:18:21 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:18:21 INFO  : 'jtag frequency' command is executed.
+01:18:21 INFO  : Context for 'APU' is selected.
+01:18:21 INFO  : System reset is completed.
+01:18:24 INFO  : 'after 3000' command is executed.
+01:18:24 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:18:27 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:18:27 INFO  : Context for 'APU' is selected.
+01:18:27 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:18:27 INFO  : 'configparams force-mem-access 1' command is executed.
+01:18:27 INFO  : Context for 'APU' is selected.
+01:18:27 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:18:31 INFO  : 'ps7_init' command is executed.
+01:18:31 INFO  : 'ps7_post_config' command is executed.
+01:18:31 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:18:32 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:18:32 INFO  : 'configparams force-mem-access 0' command is executed.
+01:18:32 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:18:32 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:18:32 INFO  : 'con' command is executed.
+01:18:32 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:18:32 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:18:55 INFO  : Disconnected from the channel tcfchan#14.
+01:12:48 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Lab\MLP\vitis_workspace\temp_xsdb_launch_script.tcl
+01:12:50 INFO  : XSCT server has started successfully.
+01:12:50 INFO  : Successfully done setting XSCT server connection channel  
+01:12:50 INFO  : plnx-install-location is set to ''
+01:12:50 INFO  : Successfully done setting workspace for the tool. 
+01:12:54 INFO  : Platform repository initialization has completed.
+01:12:55 INFO  : Registering command handlers for Vitis TCF services
+01:12:55 INFO  : Successfully done query RDI_DATADIR 
+01:14:03 INFO  : Hardware specification for platform project 'zynq_design_wrapper' is updated.
+01:26:45 INFO  : Result from executing command 'getProjects': zynq_design_wrapper
+01:26:45 INFO  : Result from executing command 'getPlatforms': zynq_design_wrapper|D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/zynq_design_wrapper.xpfm
+01:26:46 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:26:48 INFO  : Updating application flags with new BSP settings...
+01:26:48 INFO  : Successfully updated application flags for project mlp.
+01:27:29 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:27:50 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:28:25 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:28:40 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:29:43 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:30:06 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:30:35 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:31:26 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:31:53 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:31:59 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:32:05 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:33:51 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:34:16 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:34:49 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:35:20 INFO  : The hardware specfication used by project 'mlp' is out of sync with the platform. Resource files extracted from the hardware specfiication will be updated.
+01:35:20 INFO  : The file 'D:\Lab\MLP\vitis_workspace\mlp\_ide\bitstream\zynq_design_wrapper.bit' stored in project is removed.
+01:35:20 INFO  : The updated bitstream files are copied from platform to folder 'D:\Lab\MLP\vitis_workspace\mlp\_ide\bitstream' in project 'mlp'.
+01:35:20 INFO  : The file 'D:\Lab\MLP\vitis_workspace\mlp\_ide\psinit\ps7_init.tcl' stored in project is removed.
+01:35:25 INFO  : The updated ps init files are copied from platform to folder 'D:\Lab\MLP\vitis_workspace\mlp\_ide\psinit' in project 'mlp'.
+01:35:27 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:35:27 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:35:27 INFO  : 'jtag frequency' command is executed.
+01:35:27 INFO  : Context for 'APU' is selected.
+01:35:28 INFO  : System reset is completed.
+01:35:31 INFO  : 'after 3000' command is executed.
+01:35:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:35:33 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:35:33 INFO  : Context for 'APU' is selected.
+01:35:33 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:35:33 INFO  : 'configparams force-mem-access 1' command is executed.
+01:35:33 INFO  : Context for 'APU' is selected.
+01:35:33 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:35:40 INFO  : 'ps7_init' command is executed.
+01:35:40 INFO  : 'ps7_post_config' command is executed.
+01:35:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:35:40 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:35:41 INFO  : 'configparams force-mem-access 0' command is executed.
+01:35:41 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:35:41 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:35:41 INFO  : 'con' command is executed.
+01:35:41 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:35:41 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:45:54 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:48:05 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:49:25 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:49:52 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:50:04 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:50:21 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:50:26 INFO  : Disconnected from the channel tcfchan#2.
+01:50:27 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:50:27 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:50:27 INFO  : 'jtag frequency' command is executed.
+01:50:27 INFO  : Context for 'APU' is selected.
+01:50:27 INFO  : System reset is completed.
+01:50:30 INFO  : 'after 3000' command is executed.
+01:50:31 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:50:33 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:50:33 INFO  : Context for 'APU' is selected.
+01:50:33 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:50:33 INFO  : 'configparams force-mem-access 1' command is executed.
+01:50:33 INFO  : Context for 'APU' is selected.
+01:50:33 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:50:39 INFO  : 'ps7_init' command is executed.
+01:50:39 INFO  : 'ps7_post_config' command is executed.
+01:50:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:50:40 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:50:40 INFO  : 'configparams force-mem-access 0' command is executed.
+01:50:40 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:50:40 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:50:40 INFO  : 'con' command is executed.
+01:50:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:50:40 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:52:01 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:52:05 INFO  : Disconnected from the channel tcfchan#3.
+01:52:06 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:52:06 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:52:06 INFO  : 'jtag frequency' command is executed.
+01:52:06 INFO  : Context for 'APU' is selected.
+01:52:06 INFO  : System reset is completed.
+01:52:09 INFO  : 'after 3000' command is executed.
+01:52:10 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:52:12 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:52:12 INFO  : Context for 'APU' is selected.
+01:52:12 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:52:12 INFO  : 'configparams force-mem-access 1' command is executed.
+01:52:12 INFO  : Context for 'APU' is selected.
+01:52:12 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:52:18 INFO  : 'ps7_init' command is executed.
+01:52:18 INFO  : 'ps7_post_config' command is executed.
+01:52:18 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:52:19 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:52:19 INFO  : 'configparams force-mem-access 0' command is executed.
+01:52:19 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:52:19 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:52:19 INFO  : 'con' command is executed.
+01:52:19 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:52:19 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:52:53 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:53:40 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:54:13 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:54:44 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:54:52 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:58:05 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:58:08 INFO  : Disconnected from the channel tcfchan#4.
+01:58:09 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:58:10 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:58:10 INFO  : 'jtag frequency' command is executed.
+01:58:10 INFO  : Context for 'APU' is selected.
+01:58:10 INFO  : System reset is completed.
+01:58:13 INFO  : 'after 3000' command is executed.
+01:58:13 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:58:16 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:58:16 INFO  : Context for 'APU' is selected.
+01:58:16 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:58:16 INFO  : 'configparams force-mem-access 1' command is executed.
+01:58:16 INFO  : Context for 'APU' is selected.
+01:58:16 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:58:20 INFO  : 'ps7_init' command is executed.
+01:58:21 INFO  : 'ps7_post_config' command is executed.
+01:58:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:58:21 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:58:21 INFO  : 'configparams force-mem-access 0' command is executed.
+01:58:21 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:58:21 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:58:21 INFO  : 'con' command is executed.
+01:58:21 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:58:21 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:58:47 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+01:58:54 INFO  : Disconnected from the channel tcfchan#5.
+01:58:55 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:58:55 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:58:55 INFO  : 'jtag frequency' command is executed.
+01:58:55 INFO  : Context for 'APU' is selected.
+01:58:55 INFO  : System reset is completed.
+01:58:58 INFO  : 'after 3000' command is executed.
+01:58:59 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:59:01 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:59:01 INFO  : Context for 'APU' is selected.
+01:59:01 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:59:01 INFO  : 'configparams force-mem-access 1' command is executed.
+01:59:01 INFO  : Context for 'APU' is selected.
+01:59:01 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:59:08 INFO  : 'ps7_init' command is executed.
+01:59:08 INFO  : 'ps7_post_config' command is executed.
+01:59:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:59:08 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:59:08 INFO  : 'configparams force-mem-access 0' command is executed.
+01:59:08 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:59:08 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:59:09 INFO  : 'con' command is executed.
+01:59:09 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:59:09 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:01:26 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:01:33 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:01:40 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:01:48 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:01:55 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:03:10 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:03:15 INFO  : Disconnected from the channel tcfchan#6.
+02:03:16 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:03:16 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:03:16 INFO  : 'jtag frequency' command is executed.
+02:03:16 INFO  : Context for 'APU' is selected.
+02:03:16 INFO  : System reset is completed.
+02:03:19 INFO  : 'after 3000' command is executed.
+02:03:19 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:03:22 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:03:22 INFO  : Context for 'APU' is selected.
+02:03:22 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:03:22 INFO  : 'configparams force-mem-access 1' command is executed.
+02:03:22 INFO  : Context for 'APU' is selected.
+02:03:22 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:03:28 INFO  : 'ps7_init' command is executed.
+02:03:28 INFO  : 'ps7_post_config' command is executed.
+02:03:28 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:03:28 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:03:29 INFO  : 'configparams force-mem-access 0' command is executed.
+02:03:29 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:03:29 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:03:29 INFO  : 'con' command is executed.
+02:03:29 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:03:29 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:04:16 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:04:20 INFO  : Disconnected from the channel tcfchan#7.
+02:04:21 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:04:22 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:04:22 INFO  : 'jtag frequency' command is executed.
+02:04:22 INFO  : Context for 'APU' is selected.
+02:04:22 INFO  : System reset is completed.
+02:04:25 INFO  : 'after 3000' command is executed.
+02:04:25 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:04:28 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:04:28 INFO  : Context for 'APU' is selected.
+02:04:28 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:04:28 INFO  : 'configparams force-mem-access 1' command is executed.
+02:04:28 INFO  : Context for 'APU' is selected.
+02:04:28 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:04:33 INFO  : 'ps7_init' command is executed.
+02:04:33 INFO  : 'ps7_post_config' command is executed.
+02:04:33 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:04:33 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:04:33 INFO  : 'configparams force-mem-access 0' command is executed.
+02:04:33 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:04:34 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:04:34 INFO  : 'con' command is executed.
+02:04:34 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:04:34 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:15:55 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:16:04 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:16:17 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:16:30 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:16:33 INFO  : Disconnected from the channel tcfchan#8.
+02:16:34 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:16:34 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:16:35 INFO  : 'jtag frequency' command is executed.
+02:16:35 INFO  : Context for 'APU' is selected.
+02:16:35 INFO  : System reset is completed.
+02:16:38 INFO  : 'after 3000' command is executed.
+02:16:38 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:16:40 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:16:40 INFO  : Context for 'APU' is selected.
+02:16:40 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:16:40 INFO  : 'configparams force-mem-access 1' command is executed.
+02:16:40 INFO  : Context for 'APU' is selected.
+02:16:40 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:16:46 INFO  : 'ps7_init' command is executed.
+02:16:46 INFO  : 'ps7_post_config' command is executed.
+02:16:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:16:46 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:16:46 INFO  : 'configparams force-mem-access 0' command is executed.
+02:16:46 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:16:47 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:16:47 INFO  : 'con' command is executed.
+02:16:47 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:16:47 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:24:57 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:25:42 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:25:47 INFO  : Disconnected from the channel tcfchan#9.
+02:25:48 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:25:48 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:25:48 INFO  : 'jtag frequency' command is executed.
+02:25:48 INFO  : Context for 'APU' is selected.
+02:25:48 INFO  : System reset is completed.
+02:25:51 INFO  : 'after 3000' command is executed.
+02:25:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:25:54 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:25:54 INFO  : Context for 'APU' is selected.
+02:25:54 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:25:54 INFO  : 'configparams force-mem-access 1' command is executed.
+02:25:54 INFO  : Context for 'APU' is selected.
+02:25:54 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:26:01 INFO  : 'ps7_init' command is executed.
+02:26:01 INFO  : 'ps7_post_config' command is executed.
+02:26:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:26:02 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:26:02 INFO  : 'configparams force-mem-access 0' command is executed.
+02:26:02 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:26:02 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:26:02 INFO  : 'con' command is executed.
+02:26:02 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:26:02 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:28:20 INFO  : Disconnected from the channel tcfchan#10.
+02:38:06 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Lab\MLP\vitis_workspace\temp_xsdb_launch_script.tcl
+02:38:08 INFO  : XSCT server has started successfully.
+02:38:08 INFO  : Successfully done setting XSCT server connection channel  
+02:38:08 INFO  : plnx-install-location is set to ''
+02:38:08 INFO  : Successfully done setting workspace for the tool. 
+02:38:12 INFO  : Platform repository initialization has completed.
+02:38:12 INFO  : Successfully done query RDI_DATADIR 
+02:38:12 INFO  : Registering command handlers for Vitis TCF services
+02:38:29 INFO  : Hardware specification for platform project 'zynq_design_wrapper' is updated.
+02:38:39 INFO  : Result from executing command 'getProjects': zynq_design_wrapper
+02:38:39 INFO  : Result from executing command 'getPlatforms': zynq_design_wrapper|D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/zynq_design_wrapper.xpfm
+02:38:39 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:38:42 INFO  : The hardware specfication used by project 'mlp' is out of sync with the platform. Resource files extracted from the hardware specfiication will be updated.
+02:38:42 INFO  : The file 'D:\Lab\MLP\vitis_workspace\mlp\_ide\bitstream\zynq_design_wrapper.bit' stored in project is removed.
+02:38:42 INFO  : The updated bitstream files are copied from platform to folder 'D:\Lab\MLP\vitis_workspace\mlp\_ide\bitstream' in project 'mlp'.
+02:38:42 INFO  : The file 'D:\Lab\MLP\vitis_workspace\mlp\_ide\psinit\ps7_init.tcl' stored in project is removed.
+02:38:47 INFO  : The updated ps init files are copied from platform to folder 'D:\Lab\MLP\vitis_workspace\mlp\_ide\psinit' in project 'mlp'.
+02:39:13 INFO  : Hardware specification for platform project 'zynq_design_wrapper' is updated.
+02:39:20 INFO  : Result from executing command 'getProjects': zynq_design_wrapper
+02:39:20 INFO  : Result from executing command 'getPlatforms': zynq_design_wrapper|D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/zynq_design_wrapper.xpfm
+02:39:25 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:39:26 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:39:26 INFO  : 'jtag frequency' command is executed.
+02:39:26 INFO  : Context for 'APU' is selected.
+02:39:26 INFO  : System reset is completed.
+02:39:29 INFO  : 'after 3000' command is executed.
+02:39:29 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:39:32 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:39:32 INFO  : Context for 'APU' is selected.
+02:39:32 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:39:32 INFO  : 'configparams force-mem-access 1' command is executed.
+02:39:32 INFO  : Context for 'APU' is selected.
+02:39:32 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:39:37 INFO  : 'ps7_init' command is executed.
+02:39:38 INFO  : 'ps7_post_config' command is executed.
+02:39:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:39:38 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:39:38 INFO  : 'configparams force-mem-access 0' command is executed.
+02:39:38 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:39:39 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:39:39 INFO  : 'con' command is executed.
+02:39:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:39:39 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:40:23 INFO  : Disconnected from the channel tcfchan#4.
+02:40:24 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:40:24 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:40:24 INFO  : 'jtag frequency' command is executed.
+02:40:24 INFO  : Context for 'APU' is selected.
+02:40:24 INFO  : System reset is completed.
+02:40:27 INFO  : 'after 3000' command is executed.
+02:40:27 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:40:30 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:40:30 INFO  : Context for 'APU' is selected.
+02:40:30 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:40:30 INFO  : 'configparams force-mem-access 1' command is executed.
+02:40:30 INFO  : Context for 'APU' is selected.
+02:40:30 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:40:35 INFO  : 'ps7_init' command is executed.
+02:40:35 INFO  : 'ps7_post_config' command is executed.
+02:40:35 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:40:35 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:40:36 INFO  : 'configparams force-mem-access 0' command is executed.
+02:40:36 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:40:36 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:40:36 INFO  : 'con' command is executed.
+02:40:36 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:40:36 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:41:46 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:42:29 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:42:33 INFO  : Disconnected from the channel tcfchan#5.
+02:42:34 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:42:34 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:42:34 INFO  : 'jtag frequency' command is executed.
+02:42:34 INFO  : Context for 'APU' is selected.
+02:42:34 INFO  : System reset is completed.
+02:42:37 INFO  : 'after 3000' command is executed.
+02:42:37 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:42:40 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:42:40 INFO  : Context for 'APU' is selected.
+02:42:40 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:42:40 INFO  : 'configparams force-mem-access 1' command is executed.
+02:42:40 INFO  : Context for 'APU' is selected.
+02:42:40 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:42:45 INFO  : 'ps7_init' command is executed.
+02:42:45 INFO  : 'ps7_post_config' command is executed.
+02:42:45 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:42:45 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:42:45 INFO  : 'configparams force-mem-access 0' command is executed.
+02:42:45 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:42:46 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:42:46 INFO  : 'con' command is executed.
+02:42:46 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:42:46 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:42:56 INFO  : Checking for BSP changes to sync application flags for project 'mlp'...
+02:43:46 INFO  : Disconnected from the channel tcfchan#6.
+02:43:47 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+02:43:48 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+02:43:48 INFO  : 'jtag frequency' command is executed.
+02:43:48 INFO  : Context for 'APU' is selected.
+02:43:48 INFO  : System reset is completed.
+02:43:51 INFO  : 'after 3000' command is executed.
+02:43:51 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+02:43:54 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+02:43:54 INFO  : Context for 'APU' is selected.
+02:43:54 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+02:43:54 INFO  : 'configparams force-mem-access 1' command is executed.
+02:43:54 INFO  : Context for 'APU' is selected.
+02:43:54 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+02:44:00 INFO  : 'ps7_init' command is executed.
+02:44:00 INFO  : 'ps7_post_config' command is executed.
+02:44:00 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:44:00 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+02:44:01 INFO  : 'configparams force-mem-access 0' command is executed.
+02:44:01 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+02:44:01 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+02:44:01 INFO  : 'con' command is executed.
+02:44:01 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+02:44:01 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+02:48:25 INFO  : Disconnected from the channel tcfchan#7.
+01:14:10 INFO  : Launching XSCT server: xsct.bat -n  -interactive D:\Lab\MLP\vitis_workspace\temp_xsdb_launch_script.tcl
+01:14:13 INFO  : XSCT server has started successfully.
+01:14:13 INFO  : Successfully done setting XSCT server connection channel  
+01:14:13 INFO  : plnx-install-location is set to ''
+01:14:13 INFO  : Successfully done setting workspace for the tool. 
+01:14:17 INFO  : Platform repository initialization has completed.
+01:14:18 INFO  : Successfully done query RDI_DATADIR 
+01:14:18 INFO  : Registering command handlers for Vitis TCF services
+01:14:49 INFO  : Hardware specification for platform project 'zynq_design_wrapper' is updated.
+01:15:36 INFO  : Result from executing command 'getProjects': zynq_design_wrapper
+01:15:36 INFO  : Result from executing command 'getPlatforms': zynq_design_wrapper|D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/zynq_design_wrapper.xpfm
+01:15:44 INFO  : The hardware specfication used by project 'mlp' is out of sync with the platform. Resource files extracted from the hardware specfiication will be updated.
+01:15:44 INFO  : The file 'D:\Lab\MLP\vitis_workspace\mlp\_ide\bitstream\zynq_design_wrapper.bit' stored in project is removed.
+01:15:44 INFO  : The updated bitstream files are copied from platform to folder 'D:\Lab\MLP\vitis_workspace\mlp\_ide\bitstream' in project 'mlp'.
+01:15:44 INFO  : The file 'D:\Lab\MLP\vitis_workspace\mlp\_ide\psinit\ps7_init.tcl' stored in project is removed.
+01:15:51 INFO  : The updated ps init files are copied from platform to folder 'D:\Lab\MLP\vitis_workspace\mlp\_ide\psinit' in project 'mlp'.
+01:15:52 INFO  : Connected through redirection to target on host '10.0.0.4' and port '3121'.
+01:15:53 INFO  : Jtag cable 'Digilent Zed 210248799798' is selected.
+01:15:53 INFO  : 'jtag frequency' command is executed.
+01:15:53 INFO  : Context for 'APU' is selected.
+01:15:53 INFO  : System reset is completed.
+01:15:56 INFO  : 'after 3000' command is executed.
+01:15:56 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}' command is executed.
+01:15:59 INFO  : Device configured successfully with "D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit"
+01:15:59 INFO  : Context for 'APU' is selected.
+01:15:59 INFO  : Hardware design and registers information is loaded from 'D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa'.
+01:15:59 INFO  : 'configparams force-mem-access 1' command is executed.
+01:15:59 INFO  : Context for 'APU' is selected.
+01:15:59 INFO  : Sourcing of 'D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl' is done.
+01:16:05 INFO  : 'ps7_init' command is executed.
+01:16:06 INFO  : 'ps7_post_config' command is executed.
+01:16:06 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:16:06 INFO  : The application 'D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf' is downloaded to processor 'ps7_cortexa9_0'.
+01:16:06 INFO  : 'configparams force-mem-access 0' command is executed.
+01:16:06 INFO  : ----------------XSDB Script----------------
+connect -path [list tcp::1534 tcp:10.0.0.4:3121]
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zed 210248799798" && level==0 && jtag_device_ctx=="jsn-Zed-210248799798-23727093-0"}
+fpga -file D:/Lab/MLP/vitis_workspace/mlp/_ide/bitstream/zynq_design_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw D:/Lab/MLP/vitis_workspace/zynq_design_wrapper/export/zynq_design_wrapper/hw/zynq_design_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source D:/Lab/MLP/vitis_workspace/mlp/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow D:/Lab/MLP/vitis_workspace/mlp/Debug/mlp.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+01:16:07 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+01:16:07 INFO  : 'con' command is executed.
+01:16:07 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+01:16:07 INFO  : Launch script is exported to file 'D:\Lab\MLP\vitis_workspace\mlp_system\_ide\scripts\debugger_mlp-default.tcl'
+01:18:36 INFO  : Disconnected from the channel tcfchan#2.

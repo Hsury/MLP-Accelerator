@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Apr  2 00:36:11 2021
+# Process ID: 24040
+# Current directory: D:/Lab/MLP/MLP.runs/synth_1
+# Command line: vivado.exe -log zynq_design_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source zynq_design_wrapper.tcl
+# Log file: D:/Lab/MLP/MLP.runs/synth_1/zynq_design_wrapper.vds
+# Journal file: D:/Lab/MLP/MLP.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source zynq_design_wrapper.tcl -notrace

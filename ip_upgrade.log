@@ -1,0 +1,145 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Thu Mar 25 13:23:23 2021
+| Host         : Yoga-14s-2021 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zynq_design_MLP_RTL_IP_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of zynq_design_MLP_RTL_IP_0_0 (xilinx.com:user:MLP_RTL_IP:1.0) from (Rev. 2) to (Rev. 3)
+
+
+
+
+
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Thu Mar 25 13:02:29 2021
+| Host         : Yoga-14s-2021 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z020clg484-1
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'zynq_design_MLP_RTL_IP_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of zynq_design_MLP_RTL_IP_0_0 (xilinx.com:user:MLP_RTL_IP:1.0) from (Rev. 1) to (Rev. 2)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'zynq_design_MLP_RTL_IP_0_0'.
+
+
+-Upgrade has removed interface 'M00_AXIS'
+
+-Upgrade has removed interface 'M00_AXIS_CLK'
+
+-Upgrade has removed interface 'M00_AXIS_RST'
+
+-Upgrade has removed interface 'S00_AXIS'
+
+-Upgrade has removed interface 'S00_AXIS_CLK'
+
+-Upgrade has removed interface 'S00_AXIS_RST'
+
+-Upgrade has added interface 'ACLK' (xilinx.com:signal:clock:1.0)
+
+-Upgrade has added interface 'ARESETN' (xilinx.com:signal:reset:1.0)
+
+-Upgrade has added interface 'M_AXIS' (xilinx.com:interface:axis:1.0)
+
+-Upgrade has added interface 'S_AXIS' (xilinx.com:interface:axis:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'zynq_design_MLP_RTL_IP_0_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'm00_axis_aclk'
+
+-Upgrade has removed port 'm00_axis_aresetn'
+
+-Upgrade has removed port 'm00_axis_tdata'
+
+-Upgrade has removed port 'm00_axis_tlast'
+
+-Upgrade has removed port 'm00_axis_tready'
+
+-Upgrade has removed port 'm00_axis_tstrb'
+
+-Upgrade has removed port 'm00_axis_tvalid'
+
+-Upgrade has removed port 's00_axis_aclk'
+
+-Upgrade has removed port 's00_axis_aresetn'
+
+-Upgrade has removed port 's00_axis_tdata'
+
+-Upgrade has removed port 's00_axis_tlast'
+
+-Upgrade has removed port 's00_axis_tready'
+
+-Upgrade has removed port 's00_axis_tstrb'
+
+-Upgrade has removed port 's00_axis_tvalid'
+
+-Upgrade has added port 'ACLK'
+
+-Upgrade has added port 'ARESETN'
+
+-Upgrade has added port 'M_AXIS_TDATA'
+
+-Upgrade has added port 'M_AXIS_TLAST'
+
+-Upgrade has added port 'M_AXIS_TREADY'
+
+-Upgrade has added port 'M_AXIS_TVALID'
+
+-Upgrade has added port 'S_AXIS_TDATA'
+
+-Upgrade has added port 'S_AXIS_TLAST'
+
+-Upgrade has added port 'S_AXIS_TREADY'
+
+-Upgrade has added port 'S_AXIS_TVALID'
+
+
+4. Customization warnings
+-------------------------
+
+Parameter 'C_S00_AXIS_TDATA_WIDTH' is no longer present on the upgraded IP 'zynq_design_MLP_RTL_IP_0_0', and cannot be set to '32'
+
+Parameter 'C_M00_AXIS_TDATA_WIDTH' is no longer present on the upgraded IP 'zynq_design_MLP_RTL_IP_0_0', and cannot be set to '32'
+
+Parameter 'C_M00_AXIS_START_COUNT' is no longer present on the upgraded IP 'zynq_design_MLP_RTL_IP_0_0', and cannot be set to '32'
+
+
+5. Debug Commands
+-----------------
+
+  The following debug information can be passed to Vivado as Tcl commands,
+in order to validate or debug the output of the upgrade flow.
+  You may consult any warnings from within this upgrade, and alter or remove
+the configuration parameter(s) which caused the warning; then execute the Tcl
+commands, and use the IP Customization GUI to verify the IP configuration.
+
+create_ip -vlnv xilinx.com:user:MLP_RTL_IP:1.0 -user_name zynq_design_MLP_RTL_IP_0_0
+set_property -dict "\
+  CONFIG.Component_Name {zynq_design_MLP_RTL_IP_0_0} " [get_ips zynq_design_MLP_RTL_IP_0_0]
+
+
